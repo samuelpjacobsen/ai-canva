@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartSe AI Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>.StartSe</h1>
+                <span>AI academy</span>
+            </div>
+            <div class="title">
+                <h1>StartSe AI Canvas</h1>
+                <p>Um framework estratégico para negócios com AI</p>
+            </div>
+            <div class="actions">
+                <button id="edit-btn" class="icon-btn"><img src="img/edit.svg" alt="Editar"></button>
+                <button id="download-btn" class="icon-btn"><img src="img/download.svg" alt="Download"></button>
+                <button id="export-btn" class="icon-btn"><img src="img/export.svg" alt="Exportar"></button>
+            </div>
+        </header>
+
+        <div class="project-info">
+            <div class="info-item">
+                <label>Nome do projeto:</label>
+                <span contenteditable="true" class="editable">Projeto Sem Nome</span>
+            </div>
+            <div class="info-item">
+                <label>Autor(a):</label>
+                <span contenteditable="true" class="editable">Sem nome</span>
+            </div>
+            <div class="info-item">
+                <label>E-mail:</label>
+                <span contenteditable="true" class="editable">Sem e-mail</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active">CANVAS 1 <span class="close-tab">×</span></div>
+            <button class="new-tab-btn">+ NOVO</button>
+        </div>
+
+        <div class="canvas-grid">
+            <!-- Linha 1 -->
+            <div class="canvas-cell" id="problema">
+                <h3>Problema</h3>
+                <p>Descreva o problema do negócio</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">Quem, quando e onde este problema acontece? Por que é relevante?</p>
+                <div class="number">1</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+            
+            <div class="canvas-cell" id="sem-ai">
+                <h3>Como resolver SEM AI</h3>
+                <p>Descreva o processo atual e solução</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">Qual o processo atual para resolver este problema? Como você resolveria sem utilizar AI?</p>
+                <div class="number">2</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+            
+            <div class="canvas-cell" id="com-ai">
+                <h3>Como resolver COM AI</h3>
+                <p>Descreva a solução AI by design</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">E se pensarmos em usar AI desde a concepção da solução? Qual seria a solução utilizando AI by design?</p>
+                <div class="number">3</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+            
+            <div class="canvas-cell" id="para-quem">
+                <h3>Para quem?</h3>
+                <p>Descreva as personas</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">Liste as personas que você pretende atingir</p>
+                <div class="number">4</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+            
+            <!-- Linha 2 -->
+            <div class="canvas-cell" id="dados">
+                <h3>Dados</h3>
+                <p>Liste dados e fontes</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">Liste os dados que são utilizados e quais as suas fontes</p>
+                <div class="number">5</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+            
+            <div class="canvas-cell" id="ferramentas">
+                <h3>Ferramentas</h3>
+                <p>Descreva as ferramentas</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">Existem ferramentas prontas para resolver o seu problema? É possível resolver com no-code AI?</p>
+                <div class="number">6</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+            
+            <div class="canvas-cell" id="indicadores">
+                <h3>Indicadores de sucesso</h3>
+                <p>Descreva o(s) indicador(es)</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">Liste os indicadores de sucesso para esta iniciativa</p>
+                <div class="number">7</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+
+            <div class="canvas-cell" id="outros">
+                <h3>Próximos passos</h3>
+                <p>Descreva as próximas etapas</p>
+                <div contenteditable="true" class="editable-area"></div>
+                <p class="secondary-text">Descreva os próximos passos para implementação da solução</p>
+                <div class="number">8</div>
+                <button class="suggestion-btn">Sugestão AI</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="disclaimer">Obs: Certifique-se de salvar todas as suas alterações e manter a URL em um local seguro, sem compartilhá-la com terceiros. Ao criar um novo Canvas, uma nova URL será gerada. Você pode baixar o Canvas em formato PDF a qualquer momento que desejar.</p>
+            <div class="footer-buttons">
+                <button id="download-pdf-btn">Baixar em PDF</button>
+                <button id="save-btn" class="primary-btn">Salvar alterações</button>
+            </div>
+            <div class="footer-logo">.StartSe</div>
+            <div class="footer-copyright">© 2024 StartSe. Todos os direitos reservados.</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
