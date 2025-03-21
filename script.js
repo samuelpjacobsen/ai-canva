@@ -10,9 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
     downloadPdfBtn.addEventListener('click', function() {
         const element = document.querySelector('.container');
         
-        // Esconde botões de sugestão temporariamente para o PDF
-        suggestionBtns.forEach(btn => {
+        // Cria um clone do elemento para não afetar a exibição atual
+        const elementClone = element.cloneNode(true);
+        elementClone.style.width = '1200px';
+        elementClone.style.padding = '20px';
+        elementClone.style.position = 'absolute';
+        elementClone.style.left = '-9999px';
+        document.body.appendChild(elementClone);
+        
+        // Remove elementos desnecessários para o PDF
+        elementClone.querySelectorAll('.suggestion-btn').forEach(btn => {
             btn.style.display = 'none';
+        });
+        
+        // Adiciona estilos de impressão
+        elementClone.querySelectorAll('.editable-area').forEach(area => {
+            if (!area.textContent.trim()) {
+                area.style.minHeight = '50px';
+                area.style.border = '1px dashed #ccc';
+            }
         });
         
         // Opções do HTML2PDF
@@ -20,16 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
             margin: 10,
             filename: 'startse-ai-canvas.pdf',
             image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2 },
+            html2canvas: { scale: 2, useCORS: true, logging: false },
             jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
         };
         
+        // Mostra notificação
+        showNotification('Gerando PDF, aguarde...');
+        
         // Gera o PDF
-        html2pdf().set(opt).from(element).save().then(function() {
-            // Restaura botões de sugestão
-            suggestionBtns.forEach(btn => {
-                btn.style.display = 'flex';
-            });
+        html2pdf().set(opt).from(elementClone).save().then(function() {
+            // Remove o clone após gerar o PDF
+            document.body.removeChild(elementClone);
+            showNotification('PDF gerado com sucesso!');
+        }).catch(function(error) {
+            console.error('Erro ao gerar PDF:', error);
+            document.body.removeChild(elementClone);
+            showNotification('Erro ao gerar PDF. Tente novamente.');
         });
     });
     

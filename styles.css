@@ -298,10 +298,24 @@ header {
     margin-top: 20px;
 }
 
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.notification {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
 /* Responsividade */
 @media (max-width: 1024px) {
     .canvas-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .container {
+        max-width: 95%;
     }
 }
 
@@ -321,5 +335,28 @@ header {
     
     .disclaimer {
         max-width: 100%;
+    }
+    
+    .footer-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .footer-buttons button {
+        margin-bottom: 10px;
+    }
+    
+    .canvas-cell {
+        min-height: 180px;
+    }
+    
+    .editable-area {
+        min-height: 60px;
+    }
+    
+    .number {
+        font-size: 2.5rem;
+        right: 20px;
+        bottom: 15px;
     }
 }
