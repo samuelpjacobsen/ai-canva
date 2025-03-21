@@ -1,0 +1,9 @@
+# Dependências externas utilizadas
+
+## html2pdf.js
+Biblioteca para converter HTML para PDF, utilizada para a exportação do canvas.
+Versão: 0.10.1
+CDN: https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js
+
+## Fontes e ícones
+- SVG personalizados para os botões de ação
